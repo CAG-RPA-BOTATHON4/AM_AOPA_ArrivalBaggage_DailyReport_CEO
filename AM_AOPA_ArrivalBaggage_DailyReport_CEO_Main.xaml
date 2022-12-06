@@ -2,6 +2,7 @@
   <x:Members>
     <x:Property Name="in_filepath_new_report" Type="InArgument(x:String)" />
     <x:Property Name="in_emailcirculation" Type="InArgument(x:String)" />
+    <x:Property Name="in_EmailAccount" Type="InArgument(x:String)" />
   </x:Members>
   <this:Main.in_filepath_new_report>
     <InArgument x:TypeArguments="x:String" />
@@ -9,7 +10,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1126,723</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1073,819</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="26">
@@ -82,7 +83,7 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="442,658" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="462,690" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -96,16 +97,12 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="OpenExtractTableau.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="338,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="OpenExtractTableau.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="x:String" x:Key="in_emailcirculation1">
-            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_emailcirculation" />
-          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_emailcirculation1">[in_emailcirculation]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="RenameMovePDF.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="338,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="RenameMovePDF.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <OutArgument x:TypeArguments="x:String" x:Key="out_filepath_new_report">
-            <VisualBasicReference x:TypeArguments="x:String" ExpressionText="in_filepath_new_report" />
-          </OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_filepath_new_report">[in_filepath_new_report]</OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="CreateOutlookMailNew.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="338,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="CreateOutlookMailNew.xaml">
@@ -113,7 +110,10 @@
           <InArgument x:TypeArguments="x:String" x:Key="in_filepath_report">
             <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_filepath_new_report" />
           </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="in_emailcirculation3">
+          <InArgument x:TypeArguments="x:String" x:Key="in_EmailAccount">
+            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_EmailAccount" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_emailcirculation">
             <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_emailcirculation" />
           </InArgument>
         </ui:InvokeWorkflowFile.Arguments>

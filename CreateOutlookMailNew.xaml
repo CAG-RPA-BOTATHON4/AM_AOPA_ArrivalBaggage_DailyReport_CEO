@@ -1,12 +1,16 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="CreateOutlookMailNew" this:CreateOutlookMailNew.in_filepath_report="C:\Users\t1GSW2102\Desktop\CAGReports\CAG_ABPReport_20221018.pdf" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_filepath_report" Type="InArgument(x:String)" />
-    <x:Property Name="in_emailcirculation3" Type="InArgument(x:String)" />
+    <x:Property Name="in_EmailAccount" Type="InArgument(x:String)" />
+    <x:Property Name="in_emailcirculation" Type="InArgument(x:String)" />
   </x:Members>
+  <this:CreateOutlookMailNew.in_EmailAccount>
+    <InArgument x:TypeArguments="x:String" />
+  </this:CreateOutlookMailNew.in_EmailAccount>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1126,1051</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1073,1083</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CreateOutlookMailNew_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -94,7 +98,7 @@
       <AssemblyReference>System.Net.Mail</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CreateOutlookMailNew" sap:VirtualizedContainerService.HintSize="442,986" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CreateOutlookMailNew" sap:VirtualizedContainerService.HintSize="462,1018" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -150,7 +154,7 @@ Thank you."]</InArgument>
       </Assign>
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[email_body]" />
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[in_filepath_report]" />
-      <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[email_body]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="338,158" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[email_subject]" To="[in_emailcirculation3]">
+      <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Account="[in_EmailAccount]" Body="[email_body]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="338,158" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[email_subject]" To="[in_emailcirculation]">
         <ui:SendOutlookMail.Files>
           <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
             <InArgument x:TypeArguments="x:String">[in_filepath_report]</InArgument>
