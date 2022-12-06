@@ -1,0 +1,15 @@
+Hi there!, 
+
+Error detected: System error detected in process {1}. The error has been forwarded to our technical owners to resolve. Appreciate your patience as we fix the error.
+
+Type of error: {5}
+Reason: {6}
+
+You may contact Ryan Chee (ryan.chee@changiairport.com), Qiu Fanyuan(qiu.fanyuan@changiairport.com) and Esther (esther.ho@changiairport.com) if automation requires urgent completion. 
+
+Thank you for your understanding.
+
+Cheers,
+EAZYbot
+
+This is an auto-generated email sent by UiPath Process [{1}]. Please Do-Not-Reply

@@ -1,0 +1,8 @@
+<p>Hi there!</p>
+<p>I have successfully completed your requested automation - <strong>[{0}-{1}-{2}]</strong> on<strong> {3}</strong> at <strong>{4}</strong>. Please find your output documents attached. &nbsp;</p>
+<p>Thank you for engaging me, your&nbsp;<em>eazier</em>&nbsp;way to run RPA processes.</p>
+<p>Have a great day!</p>
+<p>&nbsp;</p>
+<p>Cheers,</p>
+<p>EAZYbot</p>
+<p><em>This is an auto-generated email. Please Do-Not-Reply.</em></p>

@@ -1,0 +1,15 @@
+Dear RPA CoE Team, 
+
+User {0} is experiencing error with process {1}. 
+
+Device: {2}
+
+Queue Folder: {4}
+Queue Name: {3}
+
+Type of error: {5}
+Reason: {6}
+
+
+
+This is an auto-generated email sent by UiPath Process [{1}]. 
