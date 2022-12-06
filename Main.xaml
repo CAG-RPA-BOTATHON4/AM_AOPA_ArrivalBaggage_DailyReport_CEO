@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.in_OrchestratorQueueName="AM_AOPA_ArrivalBaggage_DailyReport_CEO_Queue" this:Main.in_OrchestratorQueueFolder="Non-Production/AM Division/AOPA" this:Main.in_EmailAccount="eazybot@changiairport.onmicrosoft.com" this:Main.in_emailcirculation="goh.siakwei@changiairport.com" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.in_OrchestratorQueueName="AM_AOPA_ArrivalBaggage_DailyReport_CEO_Queue" this:Main.in_OrchestratorQueueFolder="Non-Production/AM Division/AOPA" this:Main.in_EmailAccount="eazybot@changiairport.onmicrosoft.com" this:Main.in_emailcirculation="amirrulhakim.hassan@changiairport.com; edmund.woo@changiairport.com" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Allows the Orchestrator queue name to be passed as an argument, instead of only being defined in the configuration file." Name="in_OrchestratorQueueName" Type="InArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="Allows the Orchestrator folder name where the queue is created to be passed as an argument, instead of only being defined in the configuration file." Name="in_OrchestratorQueueFolder" Type="InArgument(x:String)" />
@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1073,981</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,827</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="66">
@@ -102,7 +102,7 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[Process Name]&#xA;&#xA;Robotic Enterprise Framework is a project template based on State Machines. It is created to fit all of the best practices regarding logging, exception handling, application initialization, and others, being ready to tackle a complex business scenario.&#xA;&#xA;Pre-requisites:&#xA;- Create Queue in Orchestrator within the folder dedicated for the process.&#xA;- Set in_OrchestratorQueueFolder to folder on UiPath Orchestrator that contain that process queue. &#xA;- Set in_OrchestratorQueueName to the Queue Name&#xA;- Set in_EmailAccount to operating laptop email address (e.g. aadEazyBotsvc@changiairport.com)&#xA;" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="710,916" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[Process Name]&#xA;&#xA;Robotic Enterprise Framework is a project template based on State Machines. It is created to fit all of the best practices regarding logging, exception handling, application initialization, and others, being ready to tackle a complex business scenario.&#xA;&#xA;Pre-requisites:&#xA;- Create Queue in Orchestrator within the folder dedicated for the process.&#xA;- Set in_OrchestratorQueueFolder to folder on UiPath Orchestrator that contain that process queue. &#xA;- Set in_OrchestratorQueueName to the Queue Name&#xA;- Set in_EmailAccount to operating laptop email address (e.g. aadEazyBotsvc@changiairport.com)&#xA;" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="690,692" sap2010:WorkflowViewState.IdRef="StateMachine_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -255,18 +255,10 @@
                       </Assign>
                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Process workflow" sap:VirtualizedContainerService.HintSize="438,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" Timeout="00:30:00" UnSafe="False" WorkflowFileName="Framework\Process.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
-                            <VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="TransactionItem" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                            <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_EmailAccount">
-                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_EmailAccount" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_emailcirculation">
-                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_emailcirculation" />
-                          </InArgument>
+                          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[TransactionItem]</InArgument>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_EmailAccount">[in_EmailAccount]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_emailcirculation">[in_emailcirculation]</InArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                       <TryCatch DisplayName="Try Catch Set Transaction Status (Success)" sap:VirtualizedContainerService.HintSize="438,359" sap2010:WorkflowViewState.IdRef="TryCatch_10">
