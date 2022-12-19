@@ -1,11 +1,12 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="RenameMovePDF" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="RenameMovePDF" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="out_filepath_new_report" Type="OutArgument(x:String)" />
+    <x:Property Name="in_filepath_original_report" Type="InArgument(si:FileInfo)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>884,1168</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>990,1026</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>RenameMovePDF_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="35">
@@ -95,16 +96,15 @@
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="RenameMovePDF" sap:VirtualizedContainerService.HintSize="462,1103" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="RenameMovePDF" sap:VirtualizedContainerService.HintSize="442,961" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="400,981" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence sap:VirtualizedContainerService.HintSize="400,871" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="date_ystd" />
-        <Variable x:TypeArguments="x:String" Name="filepath_original_report" />
         <Variable x:TypeArguments="x:String" Name="filepath_new_report" />
         <Variable x:TypeArguments="s:String[]" Name="files" />
         <Variable x:TypeArguments="x:Int32" Name="count" />
@@ -114,14 +114,6 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_3">
-        <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[filepath_original_report]</OutArgument>
-        </Assign.To>
-        <Assign.Value>
-          <InArgument x:TypeArguments="x:String">[Environment.GetFolderPath(Environment.SpecialFolder.UserProfile).ToString+"\Downloads\"]</InArgument>
-        </Assign.Value>
-      </Assign>
       <Assign sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_5">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[filepath_new_report]</OutArgument>
@@ -147,7 +139,7 @@
         </Assign.Value>
       </Assign>
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[date_ystd]" />
-      <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[filepath_new_report +&quot;CAG_ABPReport_&quot; + date_ystd + &quot;.pdf&quot;]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="338,168" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[filepath_original_report + &quot;CAG Report Auto.pdf&quot;]" />
+      <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[filepath_new_report +&quot;CAG_ABPReport_&quot; + date_ystd + &quot;.pdf&quot;]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="338,168" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[in_filepath_original_report.ToString]" />
       <Assign sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_6">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[out_filepath_new_report]</OutArgument>
